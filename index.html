@@ -5,6 +5,10 @@
 <meta charset="UTF-8">
 <title>Ariguat — HF Insight Assistant</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#7C1F3E">
+<meta name="description" content="Ariguat HF Insight Assistant — interactive heart failure case discussion.">
+<link rel="manifest" href="./manifest.json">
+<link rel="icon" href="./icon-192.png" type="image/png">
 <style>
   :root{
     --maroon:#7C1F3E;
@@ -421,5 +425,14 @@ document.getElementById('restartBtn').onclick = ()=>{
 next();
 </script>
 
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js").catch((err) => {
+      console.error("Offline cache setup failed:", err);
+    });
+  });
+}
+</script>
 </body>
 </html>
